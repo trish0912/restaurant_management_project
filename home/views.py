@@ -7,3 +7,8 @@ def homepage(request):
     restaurant_name = getattr(settings, 'RESTAURANT_NAME', 'My Restaurant')
     # Render the 'index.html template inside 'home' folder and passing the restaurant name as context.
     return render(request, 'home/index.html', {'restaurant_name':restaurant_name})
+
+
+def about(request):
+    restaurant_name = getattr(settings, 'RESTAURANT_NAME', 'My Restaurant')
+    return render(request, 'home/about.html', {'restaurant_name': restaurant_name})
