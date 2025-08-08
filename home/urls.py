@@ -4,5 +4,5 @@ from .views import *
 urlpatterns = [
     path('', homepage, name='home'),
     path('about/', about, name='about'),
-    path('menu/', )
+    path('menu/', menu_items, name='menu'),
 ]
