@@ -1,8 +1,11 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Contact us</title>
+        <link rel="stylesheet" href="{% static 'home/style.css' %}">
     </head>
     <body>
         <h1>Contact us</h1>
@@ -11,4 +14,6 @@
         <p><strong>Address:</strong> 123, Food street, city name, India</p>
 
         <br>
-        <a href="{% url 'home' %}">Back to home</a>
+        <a href="{% url 'home' %}">Back to home</a>        
+    </body>
+</html>
