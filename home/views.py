@@ -13,3 +13,9 @@ def about(request):
     restaurant_name = getattr(settings, 'RESTAURANT_NAME', 'My Restaurant')
     # Render the 'about.html' template inside 'home' folder and passing the restaurant name as context.
     return render(request, 'home/about.html', {'restaurant_name': restaurant_name})
+
+
+
+def menu_items(request):
+    item_list = ['Pizza','Pasta','Burger','Salad']
+    return render(request, 'home/menu.html', {'menu':menu})
