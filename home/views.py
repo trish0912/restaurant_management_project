@@ -21,3 +21,7 @@ def about(request):
 def menu_items(request):
     item_list = ['Pizza','Pasta','Burger','Salad']
     return render(request, 'home/menu.html', {'menu':menu})
+
+# View to render contact us page
+def contact(request):
+    return render(request, 'home/contact.html')
