@@ -15,7 +15,7 @@ def about(request):
     return render(request, 'home/about.html', {'restaurant_name': restaurant_name})
 
 
-
+# View to render menu items
 def menu_items(request):
     item_list = ['Pizza','Pasta','Burger','Salad']
     return render(request, 'home/menu.html', {'menu':menu})
