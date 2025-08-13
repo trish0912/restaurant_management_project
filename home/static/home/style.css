@@ -58,4 +58,14 @@ img {
     margin-top: 20px;
 }
 
+.logo {
+
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 250px;
+    height: auto;
+}
 
