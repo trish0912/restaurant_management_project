@@ -1,10 +1,12 @@
 /* General Page styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    padding: 40px;
+    background-color: #f0f8ff;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
     text-align: center;
-    color: #333;
+    color: #222;
 
 }
 
