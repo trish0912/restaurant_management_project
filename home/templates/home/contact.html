@@ -1,19 +1,16 @@
 
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Contact us</title>
-        <link rel="stylesheet" href="{% static 'home/style.css' %}">
-    </head>
-    <body>
-        <h1>Contact us</h1>
-        <p><strong>Phone:</strong> +91 98765 43210</p>
-        <p><strong>Email:</strong> Contact@restaurant.com</p>
-        <p><strong>Address:</strong> 123, Food street, city name, India</p>
 
-        <br>
-        <a href="{% url 'home' %}">Back to home</a>        
-    </body>
-</html>
+
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<h1>Contact us</h1>
+<p><strong>Phone:</strong> +91 98765 43210</p>
+<p><strong>Email:</strong> Contact@restaurant.com</p>
+<p><strong>Address:</strong> 123, Food street, city name, India</p>
+
+<br>
+<a href="{% url 'home' %}">Back to home</a>  
+
+{% endblock %}
