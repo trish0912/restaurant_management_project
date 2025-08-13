@@ -25,3 +25,7 @@ def menu_items(request):
 # View to render contact us page
 def contact(request):
     return render(request, 'home/contact.html')
+
+# View to render reservation page
+def reservations_view(request):
+    return render(request, 'home/reservations.html')
