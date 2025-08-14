@@ -1,14 +1,30 @@
 from django.shortcuts import render # Import render to return an html response.
 from django.conf import settings # Import project settings.
+from django.db import DatabaseError
+import logging
+
+"""
+logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
+that is tied to the name of the current python module.
+"""
+logger = logging.getLogger(__name__)
 
 # View to render the homepage and display the restaurant name.
 def homepage(request):
-    # Get the restaurant phone number from settings.py. Default value is not applicable. 
-    restaurant_phone = getattr(settings, 'RESTAURANT_PHONE', 'N/A')
-    # Get the restaurant name from settings.py. If not found use the default name "My Restaurant".
-    restaurant_name = getattr(settings, 'RESTAURANT_NAME', 'My Restaurant')
-    # Render the 'index.html' template inside 'home' folder and passing the restaurant name as context.
-    return render(request, 'home/index.html', {'restaurant_name':restaurant_name, 'restaurant_phone': restaurant_phone})
+    try:
+        # Get the restaurant phone number from settings.py. Default value is not applicable. 
+        restaurant_phone = getattr(settings, 'RESTAURANT_PHONE', 'N/A')
+        # Get the restaurant name from settings.py. If not found use the default name "My Restaurant".
+        restaurant_name = getattr(settings, 'RESTAURANT_NAME', 'My Restaurant')
+        # Render the 'index.html' template inside 'home' folder and passing the restaurant name as context.
+        error_message = None
+    except (DatabaseError, Exception) as e:
+        logger.error(f"Error loading homepage data: {e}")
+        restaurant_phone = 'N/A'
+        restaurant_name = 'My Restaurant'
+        error_message = "Some information could not be loaded. Please try again later."
+
+        return render(request, 'home/index.html', {'restaurant_name':restaurant_name, 'restaurant_phone': restaurant_phone, 'error_message':error_message})
 
 # View to render the about page and display a brief description and an image of the restaurant.
 def about(request):
