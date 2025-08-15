@@ -1,16 +1,36 @@
-
-
-
 {% extends 'home/base.html' %}
 
 {% block content %}
 
-<h1>Contact us</h1>
-<p><strong>Phone:</strong> +91 98765 43210</p>
-<p><strong>Email:</strong> Contact@restaurant.com</p>
-<p><strong>Address:</strong> 123, Food street, city name, India</p>
+<h2>Contact us</h2>
 
-<br>
-<a href="{% url 'home' %}">Back to home</a>  
+<form id="contactForm" action="#" method="post">
+    {% csrf_token %}
+
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+
+    <button type="submit">Send</button>
+</form>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+    
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+
+        if (name == "" || email == "") {
+            alert("Please fill in both Name and Email fields.");
+            event.preventDefault(); // stops form from submitting
+
+        }
+    
+    });
+</script>
 
 {% endblock %}
+
+   
