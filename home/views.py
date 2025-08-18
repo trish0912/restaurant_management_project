@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render # Import render to return an html 
 from django.conf import settings # Import project settings.
 from django.db import DatabaseError
 import logging
-from 
+from .forms import FeedbackForm
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
