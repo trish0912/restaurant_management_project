@@ -1,0 +1,14 @@
+
+{% extends 'home/base.html' %}
+{% block content %}
+
+<h2>Leave Your Feedback</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Feedback</button>
+</form>
+
+
+{% endblock %}
