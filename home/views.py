@@ -47,7 +47,13 @@ def contact(request):
 def reservations_view(request):
     return render(request, 'home/reservations.html')
 
-
+# View to render feedback page
 def feedback_view(request):
     if request.method == 'POST':
-        form = 
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('feedback')
+    else:
+        form = FeedbackForm()
+    return render(request, 'home/feedback.html', {'form':form})
