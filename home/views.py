@@ -1,7 +1,8 @@
-from django.shortcuts import render # Import render to return an html response.
+from django.shortcuts import redirect, render # Import render to return an html response.
 from django.conf import settings # Import project settings.
 from django.db import DatabaseError
 import logging
+from 
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
@@ -45,3 +46,8 @@ def contact(request):
 # View to render reservation page
 def reservations_view(request):
     return render(request, 'home/reservations.html')
+
+
+def feedback_view(request):
+    if request.method == 'POST':
+        form = 
