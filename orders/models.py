@@ -2,6 +2,16 @@ from django.db import models
 from .models import Menu
 from django.contrib.auth.models import User
 
+# The models has been added in orders/models.py
+# We would run:
+# python manage.py makemigrations
+# python manage.py migrate
+# But since commands can not be executed in this internship editor hence
+# only models and migrations file are provided here.
+
+
+
+
 # Create your models here.
 class Order(models.Model):
     ORDER_STATUS = [
