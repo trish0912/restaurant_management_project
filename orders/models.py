@@ -39,3 +39,12 @@ class MenuItem(models.Model):
     # String representation of the menu item.
     def __str__(self):
         return self.name
+
+# Profile model 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=15, blank=True, null=True, help_text='Profile phone number.')
+
+    # String representation of the Profile model.
+    def __str__(self):
+        return self.user.username
