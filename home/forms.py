@@ -11,4 +11,7 @@ class FeedbackForm(forms.ModelForm):
         }
 
 
-class 
+class ContactMessageForm(forms.ModelForm):
+    class Meta:
+        model = ContactMessage
+        fields = ['name', 'email']
