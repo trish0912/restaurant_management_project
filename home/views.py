@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render # Import render to return an html 
 from django.conf import settings # Import project settings.
 from django.db import DatabaseError
 import logging
-from .forms import FeedbackForm, 
+from .forms import FeedbackForm, ContactMessageForm
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
@@ -42,9 +42,13 @@ def menu_items(request):
 # View to render contact us page
 def contact(request):
     if request.method == 'POST':
-        form = 
-
-    return render(request, 'home/contact.html')
+        form = ContactMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact')
+    else:
+        form = ContactMessageForm()
+    return render(request, 'home/contact.html', {'form':form})
 
 # View to render reservation page
 def reservations_view(request):
