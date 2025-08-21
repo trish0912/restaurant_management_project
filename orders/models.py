@@ -23,7 +23,7 @@ class Order(models.Model):
 # Menu item model that store the name, description and price of an item in the database.
 class MenuItem(models.Model):
     name = models.CharField(max_length=100, help_text='Name of the menu item.')
-    description = models.TextField(help_text='Menu item description.')
+    description = models.TextField(blank=True, null=True, help_text='Menu item description.')
     price = models.DecimalField(max_digits=10, decimal_places=2, help_text='Price of the menu item.')
 
     # String representation of the menu item.
