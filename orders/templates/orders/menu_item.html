@@ -4,15 +4,17 @@
 
 <h1>Our Menu Item</h1>
 
-{%%}
+{% if all_items %}
+    <ul>{% for item in all_items %}
+        <li>
+            <strong>{{ item.name }}</strong> - ₹{{ item.price }} <br>
+            <small>{{ item.description }}</small>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No items available right now.</p>
+{% endif %}
 
 
-
-
-
-
-
-
-
-
-{% endblock content %}
+{% endblock %}
