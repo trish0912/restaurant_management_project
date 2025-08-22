@@ -70,18 +70,19 @@ def index(request):
     """
     Homepage view.
     This view fetches menu data from the restaurant's API(orders app)
-    and pass it to menu.html template to display
+    and pass it to index.html template to display
     """
     try:
         # Calling the API endpoint we created in the orders app
         response = requests.get("http://127.0.0.1:8000/api/orders/menu/")
-
+        # If the API call successful, getting the JSON response ( list of menu items)
         if response.status_code == 200:
             menu = response.json()
         else:
-            menu = []
+            menu = [] # If API call fails, show empty menu
     except Exception:
+        # If API is unreachable or any error occurs, use empty list as fallback
         menu = []
-
-    return render(request,'home/menu.html')
+    # Render the homepage template with menu data
+    return render(request,'home/index.html', {'menu':menu})
     
