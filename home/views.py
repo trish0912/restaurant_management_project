@@ -64,3 +64,13 @@ def feedback_view(request):
     else:
         form = FeedbackForm()
     return render(request, 'home/feedback.html', {'form':form})
+
+
+def index(request):
+    """
+    Homepage view.
+    This view fetches menu data from the restaurant's API(orders app)
+    and pass it to index.html template to display
+    """
+    try:
+        response = requests.get("http://127.0.0.1:8000/api/orders/menu/")
