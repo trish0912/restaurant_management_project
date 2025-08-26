@@ -88,7 +88,7 @@ def index(request):
     return render(request,'home/index.html', {'menu':menu})
 
 
-
+# View to render restaurant's locations
 def location(request):
     all_locations = RestaurantLocation.objects.all()
     return render(request, 'home/index.html', {'all_locations':all_locations})
