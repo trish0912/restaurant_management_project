@@ -3,7 +3,7 @@ from django.conf import settings # Import project settings.
 from django.db import DatabaseError
 import logging
 from .forms import FeedbackForm, ContactMessageForm
-from .models import Resta
+from .models import RestaurantLocation
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
@@ -90,5 +90,6 @@ def index(request):
 
 
 def location(request):
-    all_locations = 
+    all_locations = RestaurantLocation.objects.all()
+    return render(request, 'home/index.html', {'all_locations':all_locations})
     
