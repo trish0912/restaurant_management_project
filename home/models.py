@@ -14,7 +14,7 @@ class ContactMessage(models.Model):
     submitted_at = models.DateTimeField(auto_now_add=True, help_text='Timestamp when each contact form was submitted.')
 
     def __str__(self):
-        return self.name
+        return f"{self.name}-{self.email}"
 
 
 # Restaurant's location model.
