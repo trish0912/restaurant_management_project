@@ -3,6 +3,7 @@ from django.conf import settings # Import project settings.
 from django.db import DatabaseError
 import logging
 from .forms import FeedbackForm, ContactMessageForm
+from .models import Resta
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
@@ -85,4 +86,9 @@ def index(request):
         menu = []
     # Render the homepage template with menu data
     return render(request,'home/index.html', {'menu':menu})
+
+
+
+def location(request):
+    all_locations = 
     
