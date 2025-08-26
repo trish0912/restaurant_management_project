@@ -15,3 +15,16 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return self.name
+
+
+# Restaurant's location model.
+class RestaurantLocation(models.Model):
+    address = models.CharField(max_length=255, help_text='Address of the restaurant location.')
+    city = models.CharField(max_length=100, help_text='City of the restaurant location.')
+    state = models.CharField(max_length=100, help_text='State of the restaurant location.')
+    zip_code = models.CharField(max_length=20, help_text='Zip code of the restaurant location.')
+
+    # String representation of the RestaurantLocation model
+    def __str__(self):
+        return self.address
+
