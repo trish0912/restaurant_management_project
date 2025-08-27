@@ -8,8 +8,11 @@
     <ul>{% for item in all_items %}
         <li>
             <strong>{{ item.name }}</strong> - ₹{{ item.price }} <br>
-            <small>{{ item.description }}</small>
+            <small>{{ item.description }}</small>            
         </li>
+            {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.name }}" style="width:200px; height:auto;">
+            {% endif %}
         {% endfor %}
     </ul>
 {% else %}
