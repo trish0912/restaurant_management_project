@@ -35,6 +35,7 @@ class MenuItem(models.Model):
     name = models.CharField(max_length=100, help_text='Name of the menu item.')
     description = models.TextField(blank=True, null=True, help_text='Menu item description.')
     price = models.DecimalField(max_digits=10, decimal_places=2, help_text='Price of the menu item.')
+    image = models.ImageField(upload_to='menu_images/', blank=True, null=True)
 
     # String representation of the menu item.
     def __str__(self):
