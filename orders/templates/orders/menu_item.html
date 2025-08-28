@@ -5,14 +5,15 @@
 <h1>Our Menu Item</h1>
 
 {% if all_items %}
-    <ul>{% for item in all_items %}
-        <li>
-            <strong>{{ item.name }}</strong> - ₹{{ item.price }} <br>
-            <small>{{ item.description }}</small>            
-        </li>
-            {% if item.image %}
-                <img src="{{ item.image.url }}" alt="{{ item.name }}" width="200">
-            {% endif %}
+    <ul>
+        {% for item in all_items %}
+            <li>
+                <strong>{{ item.name }}</strong> - ₹{{ item.price }} <br>
+                <small>{{ item.description }}</small>            
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" width="200">
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
 {% else %}
