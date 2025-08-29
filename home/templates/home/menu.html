@@ -6,17 +6,20 @@
 
 <!-- Search Bar -->
 <form method="get" action="#">
-    <input type="text" name="q" placeholder="Search menu items..." required>
+    <input type="text" name="q" placeholder="Search menu items..." value="{{ query }}">
     <button type="submit">Search</button>
 </form>
 
+{% if all_items %}
+    <ul>
+        {% for item in all_items %}
+            <li>
+                {{ item.name }} - {{item.price}}
+                {{ item.description }}
 
-<ul>
-    {% for item in menu %}
-        <li>{{ item }}</li>
-    {% endfor %}
-</ul>
-<a href="{% url 'home' %}">Back to Home</a>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Home</a>
 
 {% endblock %}
 
