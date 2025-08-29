@@ -16,10 +16,15 @@
             <li>
                 {{ item.name }} - {{item.price}}
                 {{ item.description }}
-
+                {% if item.image %}
+                    <br><img src="{{ item.image.url }}" alt="{{ item.name }}" width="200">
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
+{% endif %}
     <a href="{% url 'home' %}">Back to Home</a>
+
 
 {% endblock %}
 
