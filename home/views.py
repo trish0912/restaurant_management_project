@@ -4,6 +4,7 @@ from django.db import DatabaseError
 import logging
 from .forms import FeedbackForm, ContactMessageForm
 from .models import RestaurantLocation
+from orders.models import MenuItem
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
@@ -37,8 +38,14 @@ def about(request):
 
 # View to render menu items
 def menu_items(request):
-    item_list = ['Pizza','Pasta','Burger','Salad']
-    return render(request, 'home/menu.html', {'menu':menu})
+    #item_list = ['Pizza','Pasta','Burger','Salad']
+    query = request.GET.get("q")
+    if query:
+        all_items = MenuItem.objects.filter(name__icontains=query)
+    else:
+        all_items = MenuItem.objects.all()
+
+    return render(request, 'home/menu.html', {'all_items':all_items, 'query':query})
 
 # View to render contact us page
 def contact(request):
