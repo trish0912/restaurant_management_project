@@ -24,6 +24,9 @@ class RestaurantLocation(models.Model):
     state = models.CharField(max_length=100, help_text='State of the restaurant location.')
     zip_code = models.CharField(max_length=20, help_text='Zip code of the restaurant location.')
 
+    # Storing opening hours as JSON
+    opening_hours = models.JSONField(default=dict)
+
     # String representation of the RestaurantLocation model
     def __str__(self):
         return self.address
