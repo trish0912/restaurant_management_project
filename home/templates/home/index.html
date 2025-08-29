@@ -47,12 +47,25 @@
 {% if all_locations %}
     <ul>
         {% for location in all_locations %}
-        <li>{{ location.address }}</li>
-        <li>{{ location.city }}, {{ location.state }} - {{ location.zip_code }}</li>
+            <li>
+                {{ location.address }}
+                {{ location.city }}, {{ location.state }} - {{ location.zip_code }}
+
+                {% if location.opening_hours %}
+                    <h4>Opening hours:</h4>
+                    <ul>
+                        {% for day, hours in location.opening_hours.items %}
+                            <li>{{ day }}: {{ hours }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Opening hours not available</p>
+                {% endif %}
+            </li>
         {% endfor %}
+    </ul>
 {% else %}
         <li>Restaurant address not available</li>
-    </ul>
 {% endif %}
 
 {% endblock %}
