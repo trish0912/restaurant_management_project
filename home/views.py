@@ -54,10 +54,19 @@ def contact(request):
         form = ContactMessageForm(request.POST)
         if form.is_valid():
             contact = form.save()
-            #return redirect('contact')
+        
             # Send email notification
             subject = "New contact form submission"
-            message = f"Email: {contact.email}\n\nMessage:\n{contact.message}"
+            message = f"Name: {contact.name}\n\nEmail: {contact.email}\n\nMessage:\n{contact.message}"
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                ['restaurant@example.com'],
+                fail_silently = False,
+
+            )
+            return redirect('contact')
 
     else:
         form = ContactMessageForm()
