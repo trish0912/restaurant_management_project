@@ -5,6 +5,7 @@ import logging
 from .forms import FeedbackForm, ContactMessageForm
 from .models import RestaurantLocation
 from orders.models import MenuItem
+from django.core.mail import send_mail
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
@@ -52,8 +53,12 @@ def contact(request):
     if request.method == 'POST':
         form = ContactMessageForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('contact')
+            contact = form.save()
+            #return redirect('contact')
+            # Send email notification
+            subject = "New contact form submission"
+            message = f"Email: {contact.email}\n\nMessage:\n{contact.message}"
+
     else:
         form = ContactMessageForm()
     return render(request, 'home/contact.html', {'form':form})
