@@ -66,6 +66,8 @@ def contact(request):
                 fail_silently = False,
 
             )
+
+            message.success(request, "Thank you! Your message has been sent.")
             return redirect('contact')
 
     else:
