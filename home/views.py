@@ -6,6 +6,7 @@ from .forms import FeedbackForm, ContactMessageForm
 from .models import RestaurantLocation
 from orders.models import MenuItem
 from django.core.mail import send_mail
+from django.contrib import messages
 
 """
 logger = logging.getLogger(__name__) - is how django (and python) creates a logger instance
@@ -67,7 +68,7 @@ def contact(request):
 
             )
 
-            message.success(request, "Thank you! Your message has been sent.")
+            messages.success(request, "Thank you! Your message has been sent.")
             return redirect('contact')
 
     else:
