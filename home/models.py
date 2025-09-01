@@ -11,6 +11,7 @@ class Feedback(models.Model):
 class ContactMessage(models.Model):
     name = models.CharField(max_length=100, help_text='Name of the user.')
     email = models.EmailField(help_text='Email of the user.')
+    message = models.TextField(help_text='Contact Message')
     submitted_at = models.DateTimeField(auto_now_add=True, help_text='Timestamp when each contact form was submitted.')
 
     def __str__(self):
