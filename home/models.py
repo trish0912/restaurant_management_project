@@ -25,7 +25,7 @@ class RestaurantLocation(models.Model):
     state = models.CharField(max_length=100, help_text='State of the restaurant location.')
     zip_code = models.CharField(max_length=20, help_text='Zip code of the restaurant location.')
     phone_number = models.CharField(max_length=15, blank=True, null=True, help_text='Phone number of the restaurant.')
-
+    logo = models.ImageField(upload_to='restaurant_logos/', blank=True, null=True)
     # Storing opening hours as JSON
     opening_hours = models.JSONField(default=dict)
 
