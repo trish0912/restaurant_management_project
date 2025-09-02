@@ -50,6 +50,7 @@
     <ul>
         {% for location in all_locations %}
             {% if location.logo %}
+                <img src="{{ location.logo.url }}"
             <li>
                 {{ location.address }}
                 {{ location.city }}, {{ location.state }} - {{ location.zip_code }} <br>
