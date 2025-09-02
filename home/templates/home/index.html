@@ -49,9 +49,12 @@
 {% if all_locations %}
     <ul>
         {% for location in all_locations %}
-            {% if location.logo %}
-                <img src="{{ location.logo.url }}"
             <li>
+                <!-- Location logo if available -->
+                {% if location.logo %}
+                    <img src="{{ location.logo.url }}" width="100">
+                {% endif %}
+
                 {{ location.address }}
                 {{ location.city }}, {{ location.state }} - {{ location.zip_code }} <br>
                 Phone: {{ location.phone_number }}
