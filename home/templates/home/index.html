@@ -44,9 +44,12 @@
 
 <h2>Our locations</h2>
 
+
+
 {% if all_locations %}
     <ul>
         {% for location in all_locations %}
+            {% if location.logo %}
             <li>
                 {{ location.address }}
                 {{ location.city }}, {{ location.state }} - {{ location.zip_code }} <br>
