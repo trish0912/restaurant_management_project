@@ -10,5 +10,7 @@ urlpatterns = [
     path('contactform/', contactform, name='contactform'),
     path('reservations/', reservations_view, name='reservations'),
     path('feedback/', feedback_view, name='feedback'),
-    path('items/', )
+    path('items/', cart_items, name='items'),
+    path('add-to-cart/<int:product_id>/', add_to_cart, name='add_to_cart'),
+
 ]
