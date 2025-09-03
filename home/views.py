@@ -138,4 +138,20 @@ def contactform(request):
     return render(request, 'home/contact.html', {'form':form})
     
 
-def 
+def cart_items(request):
+    # get cart from session, default to empty dict
+    cart = request.session.get('cart', {})
+    # Calculate total items
+    total_items = sum(cart.values()) # assuming cart = {'item_id': quantity}
+
+    return render(request, 'home/cart.html', {'total_items':total_items})
+
+
+def add_to_cart(request, product_id):
+    cart = request.session.get('cart', {})
+    # Increase quantity if already in cart, else add 1
+    cart[product_id] = cart.get(product_id, 0) + 1
+    # Save back to session
+    request.session['cart'] = cart
+
+    return redirect('cart_items')
