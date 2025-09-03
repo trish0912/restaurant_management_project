@@ -125,4 +125,15 @@ def about_restaurant(request):
         'mission':'To make every customer leave with a smile!'
     }
     return render(request, 'home/about.html', context)
+
+# Views to render contact form
+def contactform(request):
+    if request.method == 'POST':
+        form = ContactMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contactform')
+    else:
+        form = ContactMessageForm()
+    return render(request, 'home/contact.html', {'form':form})
     
