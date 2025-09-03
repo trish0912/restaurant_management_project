@@ -116,4 +116,13 @@ def index(request):
 def location(request):
     all_locations = RestaurantLocation.objects.all()
     return render(request, 'home/index.html', {'all_locations':all_locations})
+
+
+def about_restaurant(request):
+    context = {
+        'name': 'My beautiful restaurant',
+        'history':'Founded in 2022, we serve delicious meals with love.'
+        'mission':'To make every customer leave with a smile!'
+    }
+    return render(request, 'home/about.html', context)
     
