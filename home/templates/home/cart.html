@@ -1,6 +1,10 @@
 {% extends 'home/base.html' %}
 {% block content %}
 
+<h1>Welcome to my Shop</h1>
 
+<p>Total items in cart: {{ total_items }}
+
+<a href="{url 'add_to_cart' product.id}">Add to Cart</a>
 
 {% endblock %}
